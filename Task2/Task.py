@@ -1,7 +1,10 @@
+#!/usr/bin/python3
+'''
+    todo:
+
+'''
 import argparse, os
 from random import shuffle
-
-script_dir = os.path.dirname(__file__)
 
 class TaskHandler:
 
@@ -99,7 +102,10 @@ if __name__ == '__main__':
                         help='If set will run only a specific scenario. For example 0 for the first 1 for the second and so on.')
     args = parser.parse_args()
 
-    scenearios = [script_dir+'\scenario1.txt',script_dir+'\scenario2.txt', script_dir+'\scenario3.txt']
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    scenearios = [script_dir + os.sep + 'scenario1.txt',                #Path Fix for Linux/Win 
+                  script_dir + os.sep + 'scenario2.txt', 
+                  script_dir + os.sep + 'scenario3.txt' ]
     if args.scenario is not None:
         scenearios = scenearios[args.scenario:args.scenario + 1]
 
